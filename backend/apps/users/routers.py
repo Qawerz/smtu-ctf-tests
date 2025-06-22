@@ -34,7 +34,7 @@ async def update(
         data: schema.UserCreateUpdate = Depends(),
         service: UsersService = Depends(get_user_service)
     ):
-    return await service.update()
+    return await service.update(id, data)
 
 @app.delete("/{id}", summary="Удаление пользлвателя")
 async def delete(

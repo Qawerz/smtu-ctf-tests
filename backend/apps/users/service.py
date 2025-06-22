@@ -11,5 +11,5 @@ class UsersService(BaseService[Users]):
         super(UsersService, self).__init__(Users, db_session)
 
     
-def get_user_service(db_session: AsyncSession = Depends(get_session)) -> UsersService:
+def get_user_service(db_session:AsyncSession = Depends(get_session)) -> UsersService:
     return UsersService(db_session)

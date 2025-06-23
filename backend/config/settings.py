@@ -2,6 +2,8 @@ from sqlalchemy.orm import DeclarativeBase, sessionmaker
 from sqlalchemy.ext.asyncio import create_async_engine, async_sessionmaker
 from pydantic_settings import BaseSettings
 
+from authx import AuthX, AuthXConfig
+
 class Settings(BaseSettings):
     db_url:str
 
@@ -23,3 +25,13 @@ async def get_session():
 
 class Base(DeclarativeBase):
     pass
+
+
+
+config = AuthXConfig(
+     JWT_ALGORITHM = "HS256",
+     JWT_SECRET_KEY = "kek",
+     JWT_TOKEN_LOCATION = ["headers"],
+)
+
+auth = AuthX(config=config)

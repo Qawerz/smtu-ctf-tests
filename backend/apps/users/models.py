@@ -12,6 +12,7 @@ class Users(Base):
     name: Mapped[str] = mapped_column(unique=True)
     team: Mapped[str]
     points: Mapped[int]
+    password: Mapped[str] = mapped_column()
 
     def __str__(self) -> str:
         return self.name

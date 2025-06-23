@@ -8,7 +8,8 @@ class UserCreateUpdate(BaseModel):
     name:str = Form(...)
     team:str = Form(...)
     points:int = Form(...)
-
+    password:str = Form(...)
+    
     class Config:
         from_attributes = True
 
